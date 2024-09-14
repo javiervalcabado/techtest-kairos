@@ -1,4 +1,4 @@
-package com.kairos.techtest.model;
+package com.kairos.techtest.model.dao;
 
 import java.util.Date;
 
