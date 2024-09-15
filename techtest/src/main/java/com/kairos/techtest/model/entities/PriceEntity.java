@@ -3,31 +3,28 @@ package com.kairos.techtest.model.entities;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 @Entity
 @Table(name = "PRICES")
 @Getter
 @Setter
-public class Price implements Serializable{
+@NoArgsConstructor
+
+public class PriceEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-/*
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
-    private static final long serialVersionUID = 1L;
-*/
-    // TODO: FIX and use id <- object
+
     private int brandID;
 
     private Timestamp startDate;
@@ -46,6 +43,10 @@ public class Price implements Serializable{
 
     private Timestamp lastUpdated;
 
-    // TODO: FIX and use id <- object
     private String lastUpdatedBy;
+
+    
+    public PriceEntity(int brand, Timestamp startDate2, Timestamp endDate2, int priceList2, int productID2,
+            int priority2, double price2, String currency2, Timestamp lastUpdated2, String lastUpdatedBy2) {        
+    }
 }
