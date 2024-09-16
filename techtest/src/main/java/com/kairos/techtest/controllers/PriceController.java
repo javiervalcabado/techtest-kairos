@@ -2,10 +2,9 @@ package com.kairos.techtest.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import com.kairos.techtest.model.dto.Price;
@@ -34,9 +33,9 @@ public class PriceController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<Price> getPrice(@PathVariable("date") Timestamp date, @PathVariable("productID") int productID, @PathVariable("brandID") int brandID) {
+    public ResponseEntity<Price> getPrice(@RequestParam(required = false) String date, @RequestParam(required = false) int productID, @RequestParam(required = false) Integer brandID) {
 
-        
-        return ResponseEntity.ok(null);
+        Price price = priceService.getPrice(date, productID, brandID);
+        return ResponseEntity.ok(price);
     }
 }

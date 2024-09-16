@@ -30,10 +30,15 @@ public class PriceService implements IPriceService{
     }
 
     @Override
-    public Price getPrice(Timestamp timestamp, int productID, int brandID) {
-        
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPrice'");
+    public Price getPrice(String date, int productID, int brandID) {
+
+        PriceEntity priceEntity = priceRepository.validatePrice(Timestamp.valueOf(date), productID, brandID);
+ 
+        if (priceEntity != null) {
+            return PriceMapper.mapToDTO(priceEntity);
+        } else {
+            return null;
+        }
     }
 
     @Override
