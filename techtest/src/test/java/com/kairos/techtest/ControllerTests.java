@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.kairos.techtest.model.dto.Price;
@@ -62,7 +61,5 @@ public class ControllerTests {
     public ResponseEntity<Price> getRestTemplate(String date, String productID, String brandID) {
        
         return this.restTemplate.exchange("/get?date={date}&productID={productID}&brandID={brandID}", HttpMethod.GET, null, Price.class, date, productID, brandID);
-        //this.restTemplate.getForObject("http://localhost:" + port + "/get?date={date}&productID={productID}&brandID={brandID}",
-        //String.class, "2020-06-14 00:00:00", "35455", "1");
     }
 }
